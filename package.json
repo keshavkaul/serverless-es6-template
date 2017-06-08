@@ -4,14 +4,19 @@
   "description": "",
   "scripts": {
     "build": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gulp deploy"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2"
-  }
+    "gulp-babel": "^6.1.2",
+    "gulp-shell": "^0.6.3",
+    "map-stream": "^0.0.7"
+  },
+  "dependencies": {}
 }

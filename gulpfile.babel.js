@@ -1,6 +1,10 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import del from 'del';
+import path from 'path';
+import shell from 'gulp-shell';
+import map from 'map-stream';
+
 
 gulp.task("clear-output", callback => {
     del(["bin/*", "!.gitkeep"])
@@ -20,3 +24,11 @@ gulp.task("babel-transpile", ["clear-output"], () => {
 });
 
 gulp.task("build", ["babel-transpile", "copy-non-js"]);
+
+gulp.task("deploy", ["deploy-serverless"]);
+
+gulp.task("deploy-serverless", () => {
+    return gulp.src("bin/**/*.yml")
+        .pipe(map((data, cb) => cb(null, {...data, dirname: path.dirname(data.path)})))
+        .pipe(shell('serverless deploy', {cwd: '<%= file.dirname %>'}));
+});
