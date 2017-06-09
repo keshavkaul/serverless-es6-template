@@ -1,6 +1,10 @@
 ### About
 Serverless framework es6 template
 
+### Requirements
+1. serverless framework installed.
+2. Node
+
 ### Guide
 1. serverless services are to be created under `src/services/`
 2. Run `yarn install`.
